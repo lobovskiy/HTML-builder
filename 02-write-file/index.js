@@ -6,12 +6,14 @@ const readline = require('readline');
 
 const FILE_NAME = 'text.txt';
 const COMMAND_EXIT = 'exit';
+const FAREWELL = 'Goodbye!';
 
 const file = path.join(__dirname, FILE_NAME);
 const writeStream = fs.createWriteStream(file, { encoding: 'utf8' });
 const rl = readline.createInterface({ input, output });
 
 const endWritingFile = () => {
+  output.write(FAREWELL);
   writeStream.close();
   rl.close();
 };
